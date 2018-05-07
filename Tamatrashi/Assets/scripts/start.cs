@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class start : MonoBehaviour {
 
+	public GameObject menu;
+	public GameObject title;
+
 	public void startGame(){
-		SceneManager.LoadScene ("game");
+		menu.SetActive (true);
+		title.SetActive (false);
 	}
 }
