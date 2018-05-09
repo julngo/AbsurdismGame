@@ -4,11 +4,26 @@ using UnityEngine;
 
 public class start : MonoBehaviour {
 
-	public GameObject menu;
-	public GameObject title;
+	public GameObject startMenu;
+	public GameObject optionMenu;
+	public GameObject petMenu;
+
 
 	public void startGame(){
-		menu.SetActive (true);
-		title.SetActive (false);
+		startMenu.SetActive (false);
+		petMenu.SetActive (true);
+
 	}
+
+	public void options() {
+		startMenu.SetActive (false);
+		optionMenu.SetActive (true);
+	}
+
+	public void goBack(){
+		optionMenu.SetActive (false);
+		petMenu.SetActive (false);
+		startMenu.SetActive (true);
+	}
+		
 }
