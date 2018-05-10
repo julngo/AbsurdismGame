@@ -25,5 +25,7 @@ public class start : MonoBehaviour {
 		petMenu.SetActive (false);
 		startMenu.SetActive (true);
 	}
+
+
 		
 }
