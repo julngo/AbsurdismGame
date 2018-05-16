@@ -9,7 +9,6 @@ public class pet : MonoBehaviour {
 	public int hygiene;
 	public int hunger;
 	public int happiness;
-	public int gold;
 	Animator animator;
 	private bool clickedBarf = false;
 	public GameObject thePet;
@@ -24,7 +23,6 @@ public class pet : MonoBehaviour {
 		hygiene = 7;
 		hunger = 7;
 		happiness = 7;
-		gold = 100;
 	}
 	
 	// Update is called once per frame
@@ -38,7 +36,7 @@ public class pet : MonoBehaviour {
 			clickedBarf = true;
 		}
 	}
-	void updateStatus(string type, int val){
+	public void updateStatus(string type, int val){
 		//checks and update the corresponding stat
 		switch (type){
 		case "health":
