@@ -9,8 +9,10 @@ public class pet : MonoBehaviour {
 	public int hygiene;
 	public int hunger;
 	public int happiness;
+	public int gold;
 	Animator animator;
 	private bool clickedBarf = false;
+	public GameObject thePet;
 
 	// Use this for initialization
 	void Start () {
@@ -22,18 +24,20 @@ public class pet : MonoBehaviour {
 		hygiene = 7;
 		hunger = 7;
 		happiness = 7;
+		gold = 100;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonUp (0) && !clickedBarf) { //if pet was clicked
-			animator.Play("barf");
-			updateStatus("happiness", -1);
-			updateStatus("hygiene", -1);
+	}
+	void OnMouseDown(){
+		if (!clickedBarf) {//if pet was clicked
+			animator.Play ("barf");
+			updateStatus ("happiness", -1);
+			updateStatus ("hygiene", -1);
 			clickedBarf = true;
 		}
 	}
-
 	void updateStatus(string type, int val){
 		//checks and update the corresponding stat
 		switch (type){
