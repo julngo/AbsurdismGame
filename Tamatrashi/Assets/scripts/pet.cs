@@ -11,7 +11,6 @@ public class pet : MonoBehaviour {
 	public int hunger;
 	public int happiness;
 	Animator animator;
-	public GameObject thePet;
 
 	// Use this for initialization
 	void Start () {
@@ -19,33 +18,19 @@ public class pet : MonoBehaviour {
 		//init values
 		string name = PlayerPrefs.GetString("petName");
 		petName.text = name;
-		health = 10;
-		hygiene = 10;
-		hunger = 10;
-		happiness = 10;
+		//init updateStatus
+		updateStatus("happiness", 0);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//decreasing stats
 		counter += Time.deltaTime;
-		if (counter >= 10) {
+		if (counter >= 5) {
 			string stat = getRandomStat ();
 			int val = (int)this.GetType().GetField(stat).GetValue(this);
 			this.GetType ().GetField (stat).SetValue (this, val - 1);
 			counter = 0;
-		}
-
-		if (health < 6) {
-			//plays sick animation
-		} else if (hygiene < 6) {
-			animator.Play ("dirt");
-		} else if (hunger < 6) {
-			animator.Play ("cry");
-		} else if (happiness < 6) {
-			animator.Play ("angry");
-		} else {
-			animator.Play ("idle");
 		}
 	}
 	void OnMouseDown(){
@@ -87,6 +72,23 @@ public class pet : MonoBehaviour {
 			return;
 		}else {
 			this.GetType ().GetField (stat).SetValue (this, currentStatVal + val);
+		}
+
+		if (health < 6) {
+			//plays sick animation
+		} else if (hygiene < 6) {
+			animator.Play ("dirt");
+		} else if (hunger < 6) {
+			animator.Play ("cry");
+		} else if (happiness < 6 && happiness > 0) {
+			animator.Play ("angry");
+		} else if (happiness == 0) {
+			animator.Play ("leave");
+			if (transform.position.x < 600) {
+				transform.Translate (2, 0, 0);
+			}
+		} else {
+			animator.Play ("idle");
 		}
 	}
 	//end of updateStatus
