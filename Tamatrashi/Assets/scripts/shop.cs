@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class shop : MonoBehaviour {
+	private float counter;
 	public class Item {
 		public int price{ get; set; }
 		public int sHa{ get; set; } //happiness stat
@@ -45,7 +46,11 @@ public class shop : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		counter += Time.deltaTime;
+		if (counter >= 5) {
+			gold += 10;
+			counter = 0;
+		}
 	}
 
 	public void showShop(){

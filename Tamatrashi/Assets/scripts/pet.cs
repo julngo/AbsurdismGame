@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class pet : MonoBehaviour {
+	private float counter;
 	public Text petName;
 	public int health;
 	public int hygiene;
 	public int hunger;
 	public int happiness;
 	Animator animator;
-	private bool clickedBarf = false;
 	public GameObject thePet;
 
 	// Use this for initialization
@@ -19,64 +19,89 @@ public class pet : MonoBehaviour {
 		//init values
 		string name = PlayerPrefs.GetString("petName");
 		petName.text = name;
-		health = 7;
-		hygiene = 7;
-		hunger = 7;
-		happiness = 7;
+		health = 10;
+		hygiene = 10;
+		hunger = 10;
+		happiness = 10;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	}
-	void OnMouseDown(){
-		if (!clickedBarf) {//if pet was clicked
-			animator.Play ("barf");
-			updateStatus ("happiness", -1);
-			updateStatus ("hygiene", -1);
-			clickedBarf = true;
+		//decreasing stats
+		counter += Time.deltaTime;
+		if (counter >= 10) {
+			string stat = getRandomStat ();
+			int val = (int)this.GetType().GetField(stat).GetValue(this);
+			this.GetType ().GetField (stat).SetValue (this, val - 1);
+			counter = 0;
+		}
+
+		if (health < 6) {
+			//plays sick animation
+		} else if (hygiene < 6) {
+			animator.Play ("dirt");
+		} else if (hunger < 6) {
+			animator.Play ("cry");
+		} else if (happiness < 6) {
+			animator.Play ("angry");
+		} else {
+			animator.Play ("idle");
 		}
 	}
-	public void updateStatus(string type, int val){
-		//checks and update the corresponding stat
-		switch (type){
-		case "health":
-			if (health + val > 10) {
-				return;
-			} else if (health + val < 0) {
-				return;
-			}else {
-				health = health + val;
+	void OnMouseDown(){
+		//if pet was clicked
+	}
+	public void playAnimOnItem(string item){
+		switch (item) {
+		case "donut":
+			if (getPerc () <= 0.7) {
+				animator.Play ("barf");
+				updateStatus ("happiness", -1);
+				updateStatus ("hygiene", -1);
 			}
 			break;
-		case "hygiene":
-			if (hygiene + val > 10) {
-				return;
-			} else if (hygiene + val < 0) {
-				return;
-			} else {
-				hygiene = hygiene + val;
+		case "smoothie":
+			break;
+		case "ball":
+			if (happiness >= 8) {
+				animator.Play ("idle2");
 			}
 			break;
-		case "hunger":
-			if (hunger + val > 10) {
-				return;
-			} else if (hunger + val < 0) {
-				return;
-			} else {
-				hunger = hunger + val;
-			}
+		case "bandaid":
 			break;
-		case "happiness":
-			if (happiness + val > 10) {
-				return;
-			} else if (happiness + val < 0) {
-				return;
-			} else {
-				happiness = happiness + val;
+		case "soap":
+			if (hygiene >= 8) {
+				animator.Play ("clean");
 			}
 			break;
 		default:
 			return;
 		}
+	}
+	public void updateStatus(string stat, int val){
+		int currentStatVal = (int)this.GetType().GetField(stat).GetValue(this);
+
+		if (currentStatVal + val > 10) {
+			return;
+		} else if (currentStatVal + val < 0) {
+			return;
+		}else {
+			this.GetType ().GetField (stat).SetValue (this, currentStatVal + val);
+		}
+	}
+	//end of updateStatus
+	string getRandomStat(){
+		string stat;
+		string[] array = {"happiness","hunger","hygiene","health"};
+		int random = Random.Range (0, 4);
+		stat = array [random];
+		return stat;
+	}
+
+	//generates percetange 
+	float getPerc(){
+		float num = Random.value;
+		num = Mathf.Round(num * 10f) / 10f;
+		return num;
 	}
 }
