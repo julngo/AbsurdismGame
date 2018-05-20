@@ -10,7 +10,7 @@ public class pet : MonoBehaviour {
 	public int hygiene;
 	public int hunger;
 	public int happiness;
-	Animator animator;
+	public Animator animator;
 
 	// Use this for initialization
 	void Start () {
@@ -28,24 +28,34 @@ public class pet : MonoBehaviour {
 		counter += Time.deltaTime;
 		if (counter >= 5) {
 			string stat = getRandomStat ();
-			int val = (int)this.GetType().GetField(stat).GetValue(this);
-			this.GetType ().GetField (stat).SetValue (this, val - 1);
+			updateStatus (stat, -1);
 			counter = 0;
 		}
 	}
 	void OnMouseDown(){
-		//if pet was clicked
+		if (getPerc () <= 0.5) {
+			animator.Play ("angry");
+			updateStatus ("happiness", -1);
+		} else {
+			animator.Play ("idle2");
+			updateStatus ("happiness", 1);
+		}
 	}
 	public void playAnimOnItem(string item){
 		switch (item) {
 		case "donut":
-			if (getPerc () <= 0.7) {
+			if (getPerc () <= 0.5) {
 				animator.Play ("barf");
-				updateStatus ("happiness", -1);
+				updateStatus ("health", -1);
 				updateStatus ("hygiene", -1);
 			}
 			break;
 		case "smoothie":
+			if (getPerc () <= 0.5) {
+				animator.Play ("barf");
+				updateStatus ("happiness", -1);
+				updateStatus ("hygiene", -1);
+			}
 			break;
 		case "ball":
 			if (happiness >= 8) {
@@ -82,12 +92,7 @@ public class pet : MonoBehaviour {
 			animator.Play ("cry");
 		} else if (happiness < 6 && happiness > 0) {
 			animator.Play ("angry");
-		} else if (happiness == 0) {
-			animator.Play ("leave");
-			if (transform.position.x < 600) {
-				transform.Translate (2, 0, 0);
-			}
-		} else {
+		}else {
 			animator.Play ("idle");
 		}
 	}
