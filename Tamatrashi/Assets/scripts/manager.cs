@@ -19,7 +19,14 @@ public class manager : MonoBehaviour {
 	public GameObject pSoap;
 	public GameObject gameOver;
 	public GameObject gameStuff;
+	private float timerCount;
+	public Text timer;
+	public Text finalTimer;
+	private bool gameIsOver = false;
 	// Update is called once per frame
+	void Start(){
+		timerCount = 0.0f;
+	}
 	void Update () {
 		//monitor and update the stats
 		sHappiness.GetComponent<Text> ().text = "" + pet.GetComponent<pet> ().happiness;
@@ -33,11 +40,20 @@ public class manager : MonoBehaviour {
 		pBandaid.GetComponent<Text> ().text = "" + shop.GetComponent<shop> ().bandaid.price;
 		pSoap.GetComponent<Text> ().text = "" + shop.GetComponent<shop> ().soap.price;
 
+		if (!gameIsOver) {
+			timerCount += Time.deltaTime;
+			timerCount = Mathf.Round (timerCount * 100f) / 100f;
+			timer.text = "" + timerCount;
+		} else {
+			finalTimer.text = "" + timerCount;
+		}
+
 		if (pet.GetComponent<pet> ().happiness <= 0 || pet.GetComponent<pet> ().hunger <= 0 ||
 		   pet.GetComponent<pet> ().hygiene <= 0 || pet.GetComponent<pet> ().health <= 0) {
 			if (pet.transform.position.x < 600) {
 				pet.GetComponent<pet> ().animator.Play ("leave");
 				pet.transform.Translate (2, 0, 0);
+				gameIsOver = true;
 			} else {
 				pet.GetComponent<pet> ().animator.StopPlayback ();
 				gameOver.SetActive (true);

@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1215
     height: 677
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -106,10 +106,10 @@ MonoBehaviour:
     y: 30
     width: 1215
     height: 627
-  m_MinSize: {x: 683, y: 492}
+  m_MinSize: {x: 681, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 11
+  controlID: 89
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,10 +130,10 @@ MonoBehaviour:
     y: 0
     width: 938
     height: 627
-  m_MinSize: {x: 406, y: 492}
+  m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 14006, y: 14042}
   vertical: 1
-  controlID: 12
+  controlID: 90
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -154,10 +154,10 @@ MonoBehaviour:
     y: 0
     width: 938
     height: 356
-  m_MinSize: {x: 406, y: 221}
-  m_MaxSize: {x: 8006, y: 4021}
+  m_MinSize: {x: 404, y: 221}
+  m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 13
+  controlID: 91
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -176,8 +176,8 @@ MonoBehaviour:
     y: 0
     width: 228
     height: 356
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -201,8 +201,8 @@ MonoBehaviour:
     y: 0
     width: 710
     height: 356
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_MinSize: {x: 336, y: 271}
   m_MaxSize: {x: 14006, y: 10021}
   vertical: 0
-  controlID: 117
+  controlID: 56
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -418,9 +418,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c6060000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 7efbffff00000000
+    m_ExpandedIDs: e43dfeff643efeff5e3ffeff763ffeff9429ffff9efbffff00000000102a00007a2a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -476,9 +476,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 25.137545, y: 0.25797653, z: 88.875}
+    m_Target: {x: 29.172718, y: -18.986616, z: 88.88871}
     speed: 2
-    m_Value: {x: 25.137545, y: 0.25797653, z: 88.875}
+    m_Value: {x: 29.172718, y: -18.986616, z: 88.88871}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -506,9 +506,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 628.8037
+    m_Target: 610.1657
     speed: 2
-    m_Value: 628.8037
+    m_Value: 610.1657
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -677,17 +677,17 @@ MonoBehaviour:
     m_Folders:
     - Assets/scripts
   m_ViewMode: 1
-  m_StartGridSize: 16
+  m_StartGridSize: 32
   m_LastFolders:
   - Assets/scripts
-  m_LastFoldersGridSize: 16
+  m_LastFoldersGridSize: 32
   m_LastProjectPath: C:\Users\suli7\Desktop\AbsurdismGame\Tamatrashi
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a6280000
-    m_LastClickedID: 10406
-    m_ExpandedIDs: 0000000084270000cc270000f627000000ca9a3bffffff7f
+    m_SelectedIDs: a4280000
+    m_LastClickedID: 10404
+    m_ExpandedIDs: 0000000082270000ca270000f427000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -715,7 +715,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000084270000cc270000f6270000
+    m_ExpandedIDs: 0000000082270000ca270000f4270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -746,18 +746,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300002a2e0000a64cfdffc424000084240000c82400008824000044ddfdffb02a0000bc2c0000000000002c330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: manager
-      m_OriginalName: manager
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 1734
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
@@ -768,7 +768,7 @@ MonoBehaviour:
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
-    m_GridSize: 16
+    m_GridSize: 32
   m_DirectoriesAreaWidth: 110
 --- !u!114 &21
 MonoBehaviour:
