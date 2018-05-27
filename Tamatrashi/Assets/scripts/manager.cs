@@ -42,10 +42,11 @@ public class manager : MonoBehaviour {
 
 		if (!gameIsOver) {
 			timerCount += Time.deltaTime;
-			timerCount = Mathf.Round (timerCount * 100f) / 100f;
-			timer.text = "" + timerCount;
+			float seconds = Mathf.Floor(timerCount % 60);
+			timer.text = "" + seconds;
 		} else {
-			finalTimer.text = "" + timerCount;
+			float seconds = Mathf.Floor(timerCount % 60);
+			finalTimer.text = "" + seconds;
 		}
 
 		if (pet.GetComponent<pet> ().happiness <= 0 || pet.GetComponent<pet> ().hunger <= 0 ||
